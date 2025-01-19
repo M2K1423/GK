@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    background-image: url("../img/bac.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    width: 150px;
+    font-size: 30px;
+    color: white;
+    user-select: none;
+    border-radius: 50%;
+    border: 0.2em solid white;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.menu {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+}
+
+.menu ul {
+    display: flex;
+    margin-left: 200px;
+    padding: 0; /* Thêm dòng này để loại bỏ padding mặc định của ul */
+}
+
+.menu ul li {
+    list-style: none;
+    position: relative;
+    width: 130px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    margin: 20px;
+    font-size: 1.1em;
+    font-weight: 500;
+    position: relative; /* Thêm dòng này để đảm bảo :after được đặt đúng */
+}
+
+.menu ul li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    transform-origin: left;
+    background: white;
+    border-radius: 4px;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.menu ul li:hover::after {
+    transform: scaleX(1);
+}
+
+.menu ul li .menu-lab {
+    display: none;
+    position: absolute;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    margin-top:2px;
+    margin-left: -15px;
+}
+.menu ul li:hover .menu-lab {
+    display: block;
+}
+.menu ul li:hover .menu-lab ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li:hover .menu-lab ul li {
+    width: 150px;
+    text-align: left;
+    border-bottom: 1px solid white;
+    background: transparent;
+    border-radius: 0;
+    padding: 15px;
+    margin: 10px;
+    transform-origin: none;
+    display: block;
+}
+
+.menu ul li:hover .menu-lab ul li:last-child {
+    border-bottom: none;
+}
+
+.menu ul li:hover .menu-lab ul li:hover {
+    background-color: gray;
+}
+
+.fa-angle-right {
+    float: right;
+}
+
+.menu-lab-2 {
+    display: none;
+}
+
+.lab-hover:hover .menu-lab-2 {
+    display: block;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 137px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.btn-login {
+    background-color: white;
+    color: black;
+    width: 130px;
+    height: 50px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: rgba(85, 71, 71, 0.315);
+    color: white;
+}
+
+.content{
+    display: flex;
+    justify-content: space-around;
+}
+.content-left{
+    width: 700px;
+    height: auto;
+    margin: auto;
+    color: white;
+    position: relative;
+    font-family: Arial;
+}
+.content-left .title{
+    font-family: 'Times New Roman';
+    font-size: 25px;
+    padding-left: 20px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+.content-left .content-main{
+    font-size: 20px;
+    margin-left: 15px;
+}
+.content-left .btn1{
+    width: 160px;
+    height: 40px;
+    background: white;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 15px;
+    color: black;
+    font-weight: 700;
+    border-radius: 10px;
+}
+.content-left .btn1:hover{
+    background-color: black;
+    color: white;
+}
+
+
+/* ----LOGIN---- */
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 2px solid #343a40;
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    color: #ffffff;
+  }
+
+  .color-register {
+    color: #ffffff;
+  }
+
+
+  .nav-pills .nav-link.active {
+    color: #007bff !important; /* Màu xanh cho tab đang chọn */
+    background-color: #343a40; /* Màu nền tùy chỉnh cho tab */
+}
+#ex1 {
+    border: none;
+}
+.nav-pills .nav-link.inactive {
+    color: white !important; /* Màu trắng cho tab không chọn */
+}
+.nav-link:hover {
+    color: #007bff; /* Màu xanh khi hover */
+}
+
+
+  .login-form,
+  .register-form {
+    background-color: #343a40;
+    padding: 20px;
+  }
+
+  .card.bg-dark {
+    background-color: #343a40;
+  }
+
+  .nav-justified>.nav-link,
+  .nav-justified .nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .login-form,
+  .register-form {
+    background-color: #303030;
+  }
+
+  .form-outline .form-control {
+    min-height: auto;
+    padding-top: .32rem;
+    padding-bottom: .32rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    border: 1px solid #cccccc !important; 
+    background-color: transparent; /* Đảm bảo nền không che mất viền */
+    color: #cccccc; /* Màu chữ trắng cho trường nhập liệu */
+    transition: all .2s linear;
+}
+
+  #tab-login,
+  #registerTitle {
+      background-color: #3c3c3c;
+  }
+  #registerForm {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.form-outline .form-control {
+    min-height: auto;
+    padding-top: .32rem;
+    padding-bottom: .32rem;
+    padding-left: .75rem;
+    padding-right: .75rem;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: all .2s linear;
+}
+
+.form-outline .form-control~.form-label {
+    position: absolute;
+    top: 0;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left: .75rem;
+    padding-top: .37rem;
+    pointer-events: none;
+    transform-origin: 0 0;
+    transition: all .2s ease-out;
+    color: var(--mdb-form-control-label-color);
+    margin-bottom: 0;
+}
+.form-outline .form-control:focus {
+    background-color: #343a40; /* Màu nền khi focus */
+    border-color: #007bff; /* Màu viền khi focus, có thể thay đổi */
+    color: #ffffff; /* Màu chữ khi focus */
+    outline: none; /* Ẩn viền mặc định của trình duyệt */
+}
+
+.form-outline .form-control:focus~.form-label, .form-outline .form-control.active~.form-label {
+    transform: translateY(-1rem) translateY(0.1rem) scale(0.8);
+}
+.form-outline {
+    position: relative;
+    width: 100%;
+}
+  
+  
